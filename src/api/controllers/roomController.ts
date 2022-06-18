@@ -33,6 +33,14 @@ export class RoomController {
     } else {
       await socket.join(message.roomId);
       socket.emit("room_joined");
+
+      if (connectedSockets?.size === 2) {
+        console.log("emitted start game");
+        socket.emit("start_game", { start: true, turn: true });
+        socket
+          .to(message.roomId)
+          .emit("start_game", { start: true, turn: false });
+      }
     }
   }
 }

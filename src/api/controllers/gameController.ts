@@ -24,6 +24,7 @@ export class GameController {
     @MessageBody() message: any
   ) {
     const gameRoom = this.getSocketGameRoom(socket);
+    console.log("game update : ", message);
     socket.to(gameRoom).emit("on_game_update", message);
   }
 }
