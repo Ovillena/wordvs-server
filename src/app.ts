@@ -13,7 +13,7 @@ export default function makeApp(database: IDatabase) {
   app.use("/", indexRouter);
 
   app.get("/", (req, res) => {
-    res.send("<h1>Hello world</h1>");
+    res.send("<h1>hi hi</h1>");
   });
 
   return app;
