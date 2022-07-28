@@ -35,11 +35,11 @@ export class RoomController {
       socket.emit("room_joined");
 
       if (connectedSockets?.size === 2) {
-        console.log("emitted start game");
-        socket.emit("start_game", { start: true, turn: true });
+        console.log("emitted start game"); //differentiate players and player turns when game start
+        socket.emit("start_game", { start: true, turn: true, player: 1 });
         socket
           .to(message.roomId)
-          .emit("start_game", { start: true, turn: false });
+          .emit("start_game", { start: true, turn: false, player: 0 });
       }
     }
   }

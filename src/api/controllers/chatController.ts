@@ -24,7 +24,7 @@ export class ChatController {
     @MessageBody() message: any
   ) {
     const gameRoom = this.getSocketGameRoom(socket);
-    console.log("game update : ", JSON.stringify(message));
+    console.log("chat update : ", JSON.stringify(message));
     socket.to(gameRoom).emit("on_chat_update", message);
   }
 }
